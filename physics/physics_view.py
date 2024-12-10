@@ -29,24 +29,24 @@ def Get_physics_view(page):
             ft.ElevatedButton(text="Go back", on_click=lambda _: page.go("/")),
             ft.Row(
                 controls=[
-                    ft.ElevatedButton(text="Thermal phenomena", on_click=lambda _: page.go("/thermalPhenomena")),
-                    ft.ElevatedButton(text="Electric phenomena", on_click=lambda _: page.go("/electricPhenomena")),
-                    ft.ElevatedButton(text="Mechanical work and energy"),
+                    ft.ElevatedButton(text="Thermal phenomena", on_click=lambda _: page.go("/physics/thermalPhenomena")),
+                    ft.ElevatedButton(text="Electric phenomena", on_click=lambda _: page.go("/physics/electricPhenomena")),
+                    ft.ElevatedButton(text="Mechanical work and energy", on_click=lambda _: page.go("/physics/mechanicalWork")),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=25,
                 ),
             ft.Row(
                 controls=[
-                    ft.ElevatedButton(text="Pressure.Achimedes law.Interaction of force bodies"),
-                    ft.ElevatedButton(text="Mechanical movement"),
+                    ft.ElevatedButton(text="Pressure.Archimedes law.Interaction of force bodies", on_click=lambda _: page.go("/physics/pressureArchimedesLaw")),
+                    ft.ElevatedButton(text="Mechanical movement", on_click=lambda _: page.go("/physics/mechanicalMovement")),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=5
             ),
             ft.Row(
                 controls=[
-                    ft.ElevatedButton(text="Library of constant valuse"),
+                    ft.ElevatedButton(text="Library of constant values"),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER
             )
@@ -63,24 +63,3 @@ def Get_physics_view(page):
             )
         )
     )
-    if page.route == "/thermalPhenomena":
-        page.views.append(Get_thermalPhenomena_view(page))
-    elif page.route == "/electricPhenomena":
-        page.views.append(Get_electriclPhenomena_view(page))
-    elif page.route == "/mehanicalMovement":
-        page.views.append(Get_mehanical_movement_view(page))
-    elif page.route == "/mechanicalWork":
-        page.views.append(Get_mechanical_work_view(page))
-    elif page.route == "/PressureAchimedesLaw":
-        page.views.append(Get_Pressure_Achimedes_view(page))
-
-    page.update()
-    def View_pop(e: ViewPopEvent) -> None:
-        page.views.pop()
-        top_view: ft.View = page.views[-1]
-        page.go(top_view.route)
-
-
-    page.on_route_change = Route_change
-    page.on_view_pop = View_pop
-    page.go(page.route)

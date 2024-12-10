@@ -2,11 +2,11 @@ import flet as ft
 
 def Get_mehanical_movement_view(page):
     return ft.View(
-        route="/mehanicalMovement",
+        route="/physics/mechanicalMovement",
         controls=[
-            ft.AppBar(title=ft.Text("Mehanical_movement"), bgcolor=ft.colors.TRANSPARENT),
-            ft.Text("MehanicalMovement", size=45),
-            ft.ElevatedButton(text="Go back", on_click=lambda _: page.go("/")),
+            ft.AppBar(title=ft.Text("Mechanical_movement"), bgcolor=ft.colors.TRANSPARENT),
+            ft.Text("MechanicalMovement", size=45),
+            ft.ElevatedButton(text="Go back", on_click=lambda _: page.go("/physics")),
             ft.Row(
                 controls=[
                     ft.ElevatedButton(text="I=U/R"),
