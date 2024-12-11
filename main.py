@@ -73,7 +73,7 @@ def main(page: ft.Page) -> None:
     def View_pop(e: ViewPopEvent) -> None:
         tmp_page = page.views.pop(1)
         paths = tmp_page.route.split("/")
-        if len(paths) > 1:
+        if len(paths) > 2:
             page.go(f"/{paths[1]}")
         else:
             page.go("/")
